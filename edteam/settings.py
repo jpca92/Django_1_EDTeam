@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api_edteam'
+    'api_edteam',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

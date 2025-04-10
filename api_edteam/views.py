@@ -2,6 +2,10 @@ import json
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+
+from rest_framework import generics
+from rest_framework import serializers
+
 from .models import Curso
 
 
@@ -51,3 +55,13 @@ def post_course(request):
     }
     
     return JsonResponse(context)
+
+#Django rest framework
+class CourseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Curso
+        fields = '__all__'
+
+class CourseList(generics.ListCreateAPIView):
+    queryset = Curso.objects.all()
+    serializer_class = CourseSerializer
